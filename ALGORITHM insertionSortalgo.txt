@@ -1,0 +1,20 @@
+ALGORITHM insertionSort
+VAR
+    i : Integer           
+    j : Integer           
+    current : Integer     
+
+BEGIN
+
+    FOR i := 1 TO length(arr) - 1 DO
+        current <- arr[i]             
+        j := i - 1                    
+
+        WHILE (j >= 0 AND arr[j] > current) DO
+            arr[j + 1] := arr[j]      
+            j := j - 1               
+        END WHILE
+
+        arr[j + 1] := current
+    END FOR
+END
