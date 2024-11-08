@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertion Sort in JavaScript</title>
+</head>
+<body>
+
+    <h2>Insertion Sort </h2>
+    <p>Enter numbers separated by commas.</p>
+    <input type="text" id="userArray" placeholder="Enter numbers here">
+    <button onclick="sortUserArray()">Sort Array</button>
+    <p id="sortedArray"></p>
+
+    <script>
+
+        function insertionSort(arr) {
+            for (let i = 1; i < arr.length; i++) {
+                let current = arr[i];
+                let j = i - 1;
+                while (j >= 0 && arr[j] > current) {
+                    arr[j + 1] = arr[j];
+                    j = j - 1;
+                }
+                arr[j + 1] = current;
+            }
+            return arr;
+        }
+
+        function sortUserArray() {
+            let input = document.getElementById("userArray").value;
+            let array = input.split(",").map(Number);
+            let sortedArray = insertionSort(array);
+            document.getElementById("sortedArray").textContent = "Sorted Array: " + sortedArray.join(", ");
+        }
+    </script>
+
+</body>
+</html>
